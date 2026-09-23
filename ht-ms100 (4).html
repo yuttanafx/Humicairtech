@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HT-MS100 — Micro Environmental Air Quality Monitoring System</title>
+<meta name="description" content="HT-MS100 Micro Environmental Air Quality Monitoring System — ระบบตรวจสอบคุณภาพอากาศขนาดเล็กแบบเครือข่าย ตรวจวัดก๊าซและฝุ่นละอองแบบเรียลไทม์ พร้อมแพลตฟอร์มคลาวด์ฟรี รองรับ OEM/ODM/OBM จัดส่งทั่วโลก">
+<meta property="og:type" content="product">
+<meta property="og:title" content="HT-MS100 — Micro Environmental Air Quality Monitoring System">
+<meta property="og:description" content="สถานีตรวจสอบคุณภาพอากาศขนาดเล็กแบบเครือข่าย มาตรฐานธุรกิจระดับโลก พร้อมระบบคลาวด์และการรับประกัน 1 ปี">
+<meta name="theme-color" content="#0A0E10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0E10; --panel:#101619; --panel2:#141C20; --line:rgba(140,200,190,0.16);
+  --ink:#EAF3F0; --muted:#7E9490; --teal:#37D6B0; --lime:#B6E24A; --amber:#F0A94E;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root:not([data-theme="light"]){}
+:root[data-theme="light"]{
+  --bg:#F3F6F4; --panel:#FFFFFF; --panel2:#EAF1EE; --line:rgba(20,50,45,0.14);
+  --ink:#0C1614; --muted:#5A6E68; --teal:#0EA37F; --lime:#5C8A1B; --amber:#B5711C;
+}
+*{box-sizing:inherit;}
+html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Kanit',sans-serif; font-weight:300; overflow-x:hidden; position:relative;}
+#galaxyBg{position:fixed; inset:0; z-index:-2; width:100%; height:100%; background:radial-gradient(ellipse at 50% 15%, #14283D 0%, #05070C 65%); transition:opacity .6s ease;}
+:root[data-theme="light"] #galaxyBg{background:linear-gradient(180deg,#BFE3EE 0%, #EAF3EC 70%); opacity:0.35;}
+.nebula{position:fixed; inset:-10%; z-index:-1; pointer-events:none; filter:blur(60px); opacity:0.55; transition:opacity .6s ease;}
+.nebula span{position:absolute; border-radius:50%; mix-blend-mode:screen;}
+.nebula span:nth-child(1){width:42vw; height:42vw; top:-8%; left:5%; background:radial-gradient(circle,rgba(55,214,176,0.55),transparent 70%); animation:driftA 26s ease-in-out infinite;}
+.nebula span:nth-child(2){width:34vw; height:34vw; top:20%; right:0%; background:radial-gradient(circle,rgba(155,124,247,0.4),transparent 70%); animation:driftB 32s ease-in-out infinite;}
+.nebula span:nth-child(3){width:30vw; height:30vw; bottom:-10%; left:30%; background:radial-gradient(circle,rgba(240,169,78,0.28),transparent 70%); animation:driftC 38s ease-in-out infinite;}
+:root[data-theme="light"] .nebula{opacity:0.12;}
+@keyframes driftA{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(6%,4%) scale(1.08);}}
+@keyframes driftB{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-8%,6%) scale(1.12);}}
+@keyframes driftC{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(5%,-6%) scale(1.06);}}
+
+.videosec{padding:0 0 60px;}
+.videowrap{border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#000;}
+.videowrap video{width:100%; display:block; max-height:520px; object-fit:cover;}
+.videocaption{padding:20px 4px 0;}
+.videocaption p{margin:0; color:var(--ink); font-family:'Chakra Petch'; font-weight:600; font-size:1.02rem; line-height:1.6; max-width:60ch;}
+h1,h2,h3,.disp{font-family:'Chakra Petch','Kanit',sans-serif; font-weight:600; margin:0;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+a{color:inherit; text-decoration:none;}
+section{padding:64px 0;}
+.eyebrow{font-size:0.78rem; letter-spacing:0.08em; color:var(--teal); margin-bottom:8px;}
+
+nav{position:sticky; top:0; z-index:50; background:rgba(10,14,16,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px);}
+:root[data-theme="light"] nav{background:rgba(243,246,244,0.9);}
+.navin{display:flex; align-items:center; justify-content:space-between; padding:14px 28px; max-width:1180px; margin:0 auto;}
+.brand{font-family:'Chakra Petch'; font-weight:700; font-size:1.05rem; letter-spacing:0.02em;}
+.brand span{color:var(--teal);}
+.navlinks{display:flex; gap:24px; font-size:0.82rem; color:var(--muted);}
+.navlinks a:hover{color:var(--teal);}
+.themebtn{width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; font-size:0.85rem;}
+.themebtn:hover{color:var(--teal); border-color:var(--teal);}
+@media(max-width:720px){.navlinks{display:none;}}
+
+.hero{padding:56px 0 40px; position:relative;}
+.hero::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 75% 15%, rgba(55,214,176,0.10), transparent 55%); pointer-events:none;}
+.herogrid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:36px; align-items:center; position:relative;}
+@media(max-width:860px){.herogrid{grid-template-columns:1fr;}}
+.hero h1{font-size:clamp(1.8rem,3.6vw,2.6rem); line-height:1.15;}
+.hero h1 em{font-style:normal; color:var(--teal);}
+.modelline{font-family:'Chakra Petch'; letter-spacing:0.1em; color:var(--muted); font-size:0.85rem; margin-top:14px;}
+.desc{margin-top:14px; color:var(--muted); font-size:0.92rem; line-height:1.85; max-width:52ch;}
+.featrow{display:flex; gap:18px; margin-top:26px; flex-wrap:wrap;}
+.feat{width:82px; text-align:center;}
+.feat .ic{width:42px; height:42px; border:1px solid var(--line); border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 7px; color:var(--teal);}
+.feat p{font-size:0.66rem; color:var(--muted); line-height:1.35; margin:0;}
+.cta{display:inline-block; margin-top:28px; background:var(--teal); color:#04140F; font-family:'Chakra Petch'; font-weight:700; padding:13px 26px; border-radius:30px; font-size:0.92rem;}
+
+.trustbar{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--panel);}
+.trustgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+@media(max-width:760px){.trustgrid{grid-template-columns:repeat(2,1fr);}}
+.trustitem{display:flex; align-items:center; gap:12px; padding:20px 24px; border-right:1px solid var(--line);}
+.trustitem:nth-child(4){border-right:none;}
+@media(max-width:760px){.trustitem:nth-child(2){border-right:none;} .trustitem{border-bottom:1px solid var(--line);} .trustitem:nth-child(3),.trustitem:nth-child(4){border-bottom:none;}}
+.trustitem .ic{color:var(--teal); flex:none;}
+.trustitem .tx b{display:block; font-family:'Chakra Petch'; font-size:0.86rem; color:var(--ink); font-weight:600;}
+.trustitem .tx span{font-size:0.72rem; color:var(--muted);}
+
+@keyframes heroIn{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+.hero-anim{animation:heroIn .7s ease both;}
+.hero-anim:nth-child(2){animation-delay:.12s;}
+@media (prefers-reduced-motion: reduce){.hero-anim{animation:none;}}
+
+.livecard{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:22px;}
+.livecard h3{font-size:0.85rem; letter-spacing:0.06em; color:var(--muted); font-weight:500; margin-bottom:16px; display:flex; align-items:center; gap:8px;}
+.dotlive{width:8px; height:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 8px var(--lime); flex:none;}
+.row{display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid var(--line);}
+.row:last-child{border-bottom:none;}
+.row .lbl{font-size:0.8rem; color:var(--muted);}
+.row .val{font-family:'Chakra Petch'; font-size:1.15rem; color:var(--ink); font-weight:600;}
+.row .unit{font-size:0.68rem; color:var(--muted); margin-left:3px; font-weight:400;}
+.livefoot{margin-top:14px; font-size:0.7rem; color:var(--muted); display:flex; justify-content:space-between;}
+
+.sectionhead{max-width:60ch; margin-bottom:36px;}
+.sectionhead h2{font-size:1.6rem;}
+.sectionhead p{color:var(--muted); font-size:0.9rem; margin-top:10px; line-height:1.8;}
+
+.stripgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+@media(max-width:760px){.stripgrid{grid-template-columns:repeat(2,1fr);}}
+.stripcard{background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:18px 14px; text-align:center;}
+.stripcard .ic{width:36px; height:36px; margin:0 auto 10px; color:var(--teal);}
+.stripcard p{font-size:0.76rem; color:var(--ink); margin:0; line-height:1.4;}
+
+.featuregrid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+@media(max-width:860px){.featuregrid{grid-template-columns:1fr;}}
+.fcard{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px;}
+.fcard .ic{width:38px; height:38px; border:1px solid var(--teal); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--teal); margin-bottom:14px;}
+.fcard h3{font-size:1.02rem; margin-bottom:8px;}
+.fcard p{font-size:0.84rem; color:var(--muted); line-height:1.7; margin:0;}
+
+.spectabs{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px;}
+@media(max-width:760px){.spectabs{grid-template-columns:1fr;}}
+.spectable{width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:0.82rem;}
+.spectable th{background:var(--panel2); color:var(--teal); text-align:left; padding:10px 14px; font-weight:500; letter-spacing:0.02em; font-size:0.78rem;}
+.spectable td{padding:9px 14px; border-top:1px solid var(--line); color:var(--ink);}
+.spectable td.mut{color:var(--muted);}
+.tablewrap{overflow-x:auto;}
+.basicspecs{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px;}
+@media(max-width:760px){.basicspecs{grid-template-columns:repeat(2,1fr);}}
+.specbox{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:14px; text-align:center;}
+.specbox .k{font-size:0.7rem; color:var(--muted);}
+.specbox .v{font-family:'Chakra Petch'; font-size:1.0rem; color:var(--ink); margin-top:4px; font-weight:600;}
+
+.envgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+@media(max-width:760px){.envgrid{grid-template-columns:repeat(2,1fr);}}
+.envtag{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:16px 10px; text-align:center; font-size:0.78rem; color:var(--ink);}
+.envtag .ic{width:26px; height:26px; margin:0 auto 8px; color:var(--teal);}
+
+.procwrap{display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.pstep{flex:1; min-width:110px; text-align:center; position:relative;}
+.pstep .circ{width:40px; height:40px; border-radius:50%; border:1px solid var(--teal); color:var(--teal); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-family:'Chakra Petch'; font-weight:700; background:var(--bg);}
+.pstep p{font-size:0.78rem; color:var(--ink); margin:0; line-height:1.4;}
+.pstep::after{content:''; position:absolute; top:19px; left:60%; width:82%; height:1px; background:var(--line);}
+.pstep:last-child::after{display:none;}
+@media(max-width:760px){.pstep::after{display:none;}}
+
+.shipbar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 28px;}
+.shipinfo p{color:var(--muted); font-size:0.85rem; line-height:1.8; margin:0; max-width:44ch;}
+.badges{display:flex; gap:16px; flex-wrap:wrap;}
+.badge{font-family:'Chakra Petch'; font-size:0.78rem; color:var(--muted); border:1px solid var(--line); padding:8px 14px; border-radius:8px;}
+
+.ctaband{border-top:1px solid var(--line);}
+footer{border-top:1px solid var(--line); padding:48px 0 0; text-align:left;}
+.footcta{text-align:center; padding:56px 0;}
+.footcta h2{font-size:1.3rem; margin-bottom:12px;}
+.footcta p{color:var(--muted); font-size:0.85rem; margin-bottom:22px;}
+.footbtnrow{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.btnoutline{border:1px solid var(--line); color:var(--ink); padding:12px 24px; border-radius:30px; font-size:0.85rem; font-family:'Chakra Petch'; font-weight:600; background:transparent; cursor:pointer;}
+.btnoutline:hover{border-color:var(--teal); color:var(--teal);}
+.footgrid{display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:32px; padding-bottom:32px;}
+@media(max-width:760px){.footgrid{grid-template-columns:1fr;}}
+.footcol h4{font-family:'Chakra Petch'; font-size:0.82rem; letter-spacing:0.05em; color:var(--ink); margin-bottom:14px;}
+.footcol a, .footcol span{display:block; font-size:0.82rem; color:var(--muted); margin-bottom:10px;}
+.footcol a:hover{color:var(--teal);}
+.footbrand p{font-size:0.82rem; color:var(--muted); line-height:1.8; max-width:38ch;}
+.footbottom{border-top:1px solid var(--line); padding:18px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:0.72rem; color:var(--muted);}
+
+/* Cart button */
+.cartbtn{position:relative; width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center;}
+.cartbtn:hover{color:var(--teal); border-color:var(--teal);}
+.cartbadge{position:absolute; top:-5px; right:-5px; min-width:16px; height:16px; padding:0 3px; border-radius:8px; background:var(--teal); color:#04140F; font-size:0.62rem; font-family:'Chakra Petch'; font-weight:700; display:flex; align-items:center; justify-content:center;}
+
+/* Modals */
+.modal-overlay{position:fixed; inset:0; background:rgba(4,8,10,0.72); backdrop-filter:blur(4px); z-index:200; display:none; align-items:center; justify-content:center; padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px 26px; width:100%; max-width:420px; position:relative; max-height:88vh; overflow-y:auto;}
+.modal-close{position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; font-size:0.9rem;}
+.modal-close:hover{color:var(--teal); border-color:var(--teal);}
+.modal-box h3{font-size:1.15rem; margin-bottom:18px;}
+.cartrow{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 0; border-bottom:1px solid var(--line);}
+.cartrow .ci-name{font-size:0.9rem; color:var(--ink); font-weight:500;}
+.cartrow .ci-price{font-size:0.76rem; color:var(--muted); margin-top:2px;}
+.qtybox{display:flex; align-items:center; gap:8px;}
+.qtybox button{width:26px; height:26px; border-radius:6px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); cursor:pointer; font-size:0.9rem;}
+.qtybox span{min-width:22px; text-align:center; font-family:'Chakra Petch'; font-size:0.88rem;}
+.emptycart{color:var(--muted); font-size:0.85rem; text-align:center; padding:20px 0;}
+.cartfoot{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
+.field{margin-bottom:14px;}
+.field label{display:block; font-size:0.76rem; color:var(--muted); margin-bottom:6px;}
+.field input, .field textarea{width:100%; background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:10px 12px; color:var(--ink); font-family:'Kanit',sans-serif; font-size:0.86rem;}
+.field textarea{min-height:70px; resize:vertical;}
+.field input:focus, .field textarea:focus{outline:2px solid var(--teal); outline-offset:1px;}
+.modal-note{font-size:0.72rem; color:var(--muted); text-align:center; margin-top:14px; line-height:1.6;}
+.confirm-icon{width:52px; height:52px; border-radius:50%; border:1px solid var(--teal); color:var(--teal); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:1.4rem;}
+.confirm-box{text-align:center;}
+.confirm-box p{color:var(--muted); font-size:0.86rem; line-height:1.8;}
+</style>
+</head>
+<body>
+
+<canvas id="galaxyBg"></canvas>
+<div class="nebula"><span></span><span></span><span></span></div>
+
+<nav>
+  <div class="navin">
+    <div class="brand">HT-MS100 <span>· Air Quality</span></div>
+    <div class="navlinks">
+      <a href="#overview" data-i18n="nav_overview">ภาพรวม</a>
+      <a href="#features" data-i18n="nav_features">คุณสมบัติ</a>
+      <a href="#specs" data-i18n="nav_specs">สเปค</a>
+      <a href="#applications" data-i18n="nav_app">การใช้งาน</a>
+      <a href="#contact" data-i18n="nav_contact">ติดต่อ</a>
+    </div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <button class="cartbtn" id="cartBtn" aria-label="ตะกร้าสินค้า">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.6a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg>
+        <span class="cartbadge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <button class="themebtn" id="langBtn" aria-label="สลับภาษา">中</button>
+      <button class="themebtn" id="themeBtn" aria-label="กลางวัน/กลางคืน">☾</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap herogrid">
+    <div class="hero-anim">
+      <div class="eyebrow" data-i18n="hero_eyebrow">MICRO ENVIRONMENTAL AIR QUALITY MONITORING SYSTEM</div>
+      <h1 data-i18n="hero_title">มองเห็นคุณภาพอากาศ<br>ที่ <em>ตามองไม่เห็น</em></h1>
+      <div class="modelline" data-i18n="hero_model">HT-MS100 — สถานีตรวจวัดคุณภาพอากาศขนาดเล็กแบบเครือข่าย</div>
+      <p class="desc" data-i18n="hero_desc">สถานีตรวจสอบคุณภาพอากาศโดยรอบขนาดเล็ก ทำงานอัตโนมัติต่อเนื่องแบบเครือข่าย ประกอบด้วยเซ็นเซอร์ โมดูลเก็บข้อมูล โปรเซสเซอร์ และจอแสดงผลในตัวเดียว ตรวจจับก๊าซและฝุ่นหลายชนิดพร้อมกัน แล้วประมวลผลเป็นดัชนีคุณภาพอากาศแบบเรียลไทม์ พร้อมแจ้งเตือนทันทีที่ค่าเกินเกณฑ์ความปลอดภัย</p>
+      <div class="featrow">
+        <div class="feat"><div class="ic">◈</div><p data-i18n="feat1">Multi-parameter monitoring</p></div>
+        <div class="feat"><div class="ic">24</div><p data-i18n="feat2">ตรวจวัดต่อเนื่อง</p></div>
+        <div class="feat"><div class="ic">4G</div><p data-i18n="feat3">ส่งข้อมูลไร้สาย</p></div>
+        <div class="feat"><div class="ic">☁</div><p data-i18n="feat4">Cloud platform ฟรี</p></div>
+      </div>
+      <a class="cta" href="#specs" data-i18n="hero_cta">ดูสเปคเต็ม</a>
+    </div>
+
+    <div class="livecard hero-anim">
+      <h3><span class="dotlive"></span> <span data-i18n="live_title">MONITORING STATION — LIVE</span></h3>
+      <div class="row"><span class="lbl">PM2.5</span><span class="val">49<span class="unit">µg/m³</span></span></div>
+      <div class="row"><span class="lbl">PM10</span><span class="val">66<span class="unit">µg/m³</span></span></div>
+      <div class="row"><span class="lbl">TSP</span><span class="val">116<span class="unit">µg/m³</span></span></div>
+      <div class="row"><span class="lbl">TEMP</span><span class="val">27.3<span class="unit">°C</span></span></div>
+      <div class="livefoot"><span>2024-04-30 10:20:46</span><span>7" HD touch screen</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="trustbar">
+  <div class="wrap trustgrid">
+    <div class="trustitem">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+      <div class="tx"><b data-i18n="tb1_h">รับประกัน 1 ปี</b><span data-i18n="tb1_s">คุ้มครองเต็มระยะเวลา</span></div>
+    </div>
+    <div class="trustitem">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M3 12h18"/></svg>
+      <div class="tx"><b data-i18n="tb2_h">จัดส่งทั่วโลก</b><span data-i18n="tb2_s">DHL · FedEx · UPS · TNT · EMS</span></div>
+    </div>
+    <div class="trustitem">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16M4 12h16M12 4v16"/></svg>
+      <div class="tx"><b data-i18n="tb3_h">OEM / ODM / OBM</b><span data-i18n="tb3_s">ปรับแต่งได้ตามความต้องการ</span></div>
+    </div>
+    <div class="trustitem">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15a4 4 0 010-8 5 5 0 019.6-1.5A4.5 4.5 0 0119 15H4z"/></svg>
+      <div class="tx"><b data-i18n="tb4_h">Cloud Platform ฟรี</b><span data-i18n="tb4_s">มอนิเตอร์ได้จากทุกที่</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="videosec">
+  <div class="wrap">
+    <div class="videowrap">
+      <video autoplay muted loop playsinline id="promoVideo">
+        <source src="promo.mp4" type="video/mp4">
+      </video>
+      <div class="videocaption">
+        <p data-i18n="vid_caption">พร้อมระบบกักเก็บซูเปอร์เรเดียน เพื่อคุณภาพอากาศและสิ่งแวดล้อมที่ดีขึ้น ตรวจสอบควบคู่กับองศาที่โลกทำมุม 23.5°</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="ov_eyebrow">ภาพรวมผลิตภัณฑ์</div>
+      <h2 data-i18n="ov_title">ไมโครเอนวิโรเมนทอลระบบตรวจสอบคุณภาพอากาศ</h2>
+      <p data-i18n="ov_desc">เซ็นเซอร์ตรวจจับคาร์บอนไดออกไซด์ คาร์บอนมอนอกไซด์ อนุภาคฝุ่น และสารอินทรีย์ระเหย โมดูลเก็บข้อมูลแปลงค่าที่วัดได้เป็นสัญญาณดิจิทัลส่งต่อให้โปรเซสเซอร์คำนวณดัชนีคุณภาพอากาศและแสดงผลทันที ช่วยให้เข้าใจสภาพอากาศโดยรอบได้อย่างทันท่วงทีเพื่อปกป้องสุขภาพของผู้คน</p>
+    </div>
+    <div class="stripgrid">
+      <div class="stripcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><p data-i18n="strip1">Imported sensor</p></div>
+      <div class="stripcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><p data-i18n="strip2">Grid layout deployment</p></div>
+      <div class="stripcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M6 8l3 3M18 8l-3 3"/><rect x="4" y="11" width="16" height="9" rx="2"/></svg></div><p data-i18n="strip3">Customized matching</p></div>
+      <div class="stripcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15a4 4 0 010-8 5 5 0 019.6-1.5A4.5 4.5 0 0119 15H4z"/></svg></div><p data-i18n="strip4">Free cloud platform</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:var(--panel2);">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="feat_eyebrow">คุณสมบัติเด่น</div>
+      <h2 data-i18n="feat_title">ออกแบบให้ทำงานได้ในทุกสภาพแวดล้อม</h2>
+    </div>
+    <div class="featuregrid">
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3 data-i18n="f1_title">จอสัมผัส HD 7 นิ้ว</h3>
+        <p data-i18n="f1_desc">อ่านค่าได้ชัดเจน ใช้งานง่าย ด้วยหน้าจอสัมผัสความละเอียดสูงและอินเทอร์เฟซที่เป็นมิตรกับผู้ใช้งาน</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16M4 12h16M12 4v16"/></svg></div>
+        <h3 data-i18n="f2_title">Grid layout วางผังจุดตรวจ</h3>
+        <p data-i18n="f2_desc">ติดตั้งได้ยืดหยุ่นตามจุดต่าง ๆ วิเคราะห์ค่าเฉลี่ยมลพิษในภูมิภาค เพื่อการบริหารจัดการสิ่งแวดล้อมแบบครอบคลุม</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3 data-i18n="f3_title">4G ไร้สาย + เก็บข้อมูล 15,000+ ชุด</h3>
+        <p data-i18n="f3_desc">ส่งข้อมูลแบบเรียลไทม์ผ่าน 4G ต้นทุนต่ำ เหมาะกับการติดตั้งแบบกริด และดึงข้อมูลย้อนหลังได้ตลอดเวลา</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="3" width="8" height="18" rx="2"/><path d="M10 21h0"/></svg></div>
+        <h3 data-i18n="f4_title">ส่งออกข้อมูลผ่าน U disk</h3>
+        <p data-i18n="f4_desc">รองรับพอร์ต USB สำหรับส่งออกข้อมูล ทำให้การถ่ายโอนข้อมูลสะดวกยิ่งขึ้น</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v13M9 16a3 3 0 106 0"/></svg></div>
+        <h3 data-i18n="f5_title">ระบบควบคุมอุณหภูมิ 2 ขั้น</h3>
+        <p data-i18n="f5_desc">ทำความร้อนและลดความชื้นอัตโนมัติ รักษาอุณหภูมิภายในให้คงที่ ไม่ว่าอากาศภายนอกจะร้อนจัดหรือหนาวจัด</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h3 data-i18n="f6_title">เซ็นเซอร์นำเข้าความไวสูง</h3>
+        <p data-i18n="f6_desc">ตอบสนองเร็ว ความแม่นยำสูง เสถียรภาพของข้อมูลดี ทำงานได้มั่นคงแม้ในสภาพแวดล้อมที่รุนแรง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="specs_eyebrow">ข้อมูลจำเพาะ</div>
+      <h2 data-i18n="specs_title">สเปคเทคนิคของ HT-MS100</h2>
+    </div>
+
+    <div class="basicspecs">
+      <div class="specbox"><div class="k">Model</div><div class="v">HT-MS100</div></div>
+      <div class="specbox"><div class="k">Power supply</div><div class="v">AC 220V</div></div>
+      <div class="specbox"><div class="k">Working temp.</div><div class="v">-20 ~ 50°C</div></div>
+      <div class="specbox"><div class="k">Working humidity</div><div class="v">0–93% RH</div></div>
+      <div class="specbox"><div class="k">Equipment power</div><div class="v">&lt; 100W</div></div>
+      <div class="specbox"><div class="k">Size (mm)</div><div class="v">738×810×200</div></div>
+    </div>
+
+    <div class="spectabs">
+      <div class="tablewrap">
+        <table class="spectable">
+          <tr><th data-i18n="gas_h1">ก๊าซ (5 ชนิด)</th><th data-i18n="gas_h2">ช่วงตรวจวัด</th><th data-i18n="gas_h3">ความแม่นยำ</th></tr>
+          <tr><td>CO</td><td class="mut">0–20 ppm</td><td class="mut">0–10ppm ≤±2ppm / 10–20ppm ≤±20%FS</td></tr>
+          <tr><td>NO₂ / O₃ / SO₂</td><td class="mut">0–1 ppm</td><td class="mut">0–100ppb ≤±20ppb / 100ppb–1ppm ≤±20%FS</td></tr>
+          <tr><td>TVOC</td><td class="mut">0–20 ppm</td><td class="mut">0–300ppb ≤±50ppb / 300ppb–20ppm ≤±20%FS</td></tr>
+        </table>
+      </div>
+      <div class="tablewrap">
+        <table class="spectable">
+          <tr><th data-i18n="dust_h1">ฝุ่น (3 ชนิด)</th><th data-i18n="gas_h2b">ช่วงตรวจวัด</th><th data-i18n="gas_h3b">ความแม่นยำ</th></tr>
+          <tr><td>PM2.5</td><td class="mut">0–2,000 µg/m³</td><td class="mut">≤100 → ±25µg/m³ / &gt;100 → ±25%</td></tr>
+          <tr><td>PM10</td><td class="mut">0–2,000 µg/m³</td><td class="mut">≤100 → ±25µg/m³ / &gt;100 → ±25%</td></tr>
+          <tr><td>TSP</td><td class="mut">0–50,000 µg/m³</td><td class="mut">≤100 → ±25µg/m³ / &gt;100 → ±25%</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="applications" style="background:var(--panel2);">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="app_eyebrow">สภาพแวดล้อมที่ใช้งานได้</div>
+      <h2 data-i18n="app_title">Applicable Environment</h2>
+    </div>
+    <div class="envgrid">
+      <div class="envtag"><div class="ic">🌳</div><span data-i18n="env1">สวนสาธารณะชุมชน</span></div>
+      <div class="envtag"><div class="ic">🏭</div><span data-i18n="env2">โรงงานอุตสาหกรรม</span></div>
+      <div class="envtag"><div class="ic">🚦</div><span data-i18n="env3">เส้นทางจราจร</span></div>
+      <div class="envtag"><div class="ic">🍽️</div><span data-i18n="env4">ร้านอาหาร</span></div>
+      <div class="envtag"><div class="ic">🏫</div><span data-i18n="env5">สถานศึกษา</span></div>
+      <div class="envtag"><div class="ic">🌾</div><span data-i18n="env6">พื้นที่เพาะปลูก</span></div>
+      <div class="envtag"><div class="ic">🏢</div><span data-i18n="env7">อาคารสำนักงาน</span></div>
+      <div class="envtag"><div class="ic">🚜</div><span data-i18n="env8">การผลิตทางเกษตร</span></div>
+      <div class="envtag"><div class="ic">🌧️</div><span data-i18n="env9">อุตุ-อุทกวิทยา</span></div>
+      <div class="envtag"><div class="ic">🏗️</div><span data-i18n="env10">ไซต์ก่อสร้าง</span></div>
+      <div class="envtag"><div class="ic">🧭</div><span data-i18n="env11">แหล่งมลพิษแบบกริด</span></div>
+      <div class="envtag"><div class="ic">🏭</div><span data-i18n="env12">แหล่งมลพิษหลัก</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="proc_eyebrow">CRAFTSMANSHIP</div>
+      <h2 data-i18n="proc_title">สร้างสรรค์สินค้าคุณภาพสูงทุกขั้นตอน</h2>
+    </div>
+    <div class="procwrap">
+      <div class="pstep"><div class="circ">1</div><p>Docking<br>requirements</p></div>
+      <div class="pstep"><div class="circ">2</div><p>Obtain<br>protocol</p></div>
+      <div class="pstep"><div class="circ">3</div><p>Debugging<br>calibration</p></div>
+      <div class="pstep"><div class="circ">4</div><p>Strict quality<br>inspection</p></div>
+      <div class="pstep"><div class="circ">5</div><p>Packaging<br>and shipping</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--panel2);">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow" data-i18n="sup_eyebrow">บริการหลังการขาย</div>
+      <h2 data-i18n="sup_title">ทีมงานพร้อมดูแลคุณตลอดอายุการใช้งาน</h2>
+    </div>
+    <div class="stripgrid">
+      <div class="stripcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><path d="M9 20v-8h6v8"/></svg></div>
+        <p data-i18n="sup1">คลังสินค้าพร้อมจัดส่ง</p>
+      </div>
+      <div class="stripcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.2-1.6l2-1.5-2-3.4-2.3.9a7 7 0 00-2.7-1.6L13.4 2h-2.8l-.4 2.8a7 7 0 00-2.7 1.6l-2.3-.9-2 3.4 2 1.5A7 7 0 005 12c0 .5.1 1.1.2 1.6l-2 1.5 2 3.4 2.3-.9c.8.7 1.7 1.3 2.7 1.6l.4 2.8h2.8l.4-2.8c1-.3 1.9-.9 2.7-1.6l2.3.9 2-3.4-2-1.5c.1-.5.2-1.1.2-1.6z"/></svg></div>
+        <p data-i18n="sup2">ทีมซัพพอร์ตด้านเทคนิค</p>
+      </div>
+      <div class="stripcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M9 5l3 3 3-3"/><rect x="4" y="11" width="16" height="9" rx="2"/></svg></div>
+        <p data-i18n="sup3">คำแนะนำการติดตั้ง</p>
+      </div>
+      <div class="stripcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 11-4-7.2M21 4v6h-6"/></svg></div>
+        <p data-i18n="sup4">บริการหลังการขาย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="shipbar">
+      <div class="shipinfo">
+        <h3 style="margin-bottom:8px;" data-i18n="ship_title">การรับประกันและการจัดส่ง</h3>
+        <p data-i18n="ship_desc">รับประกันสินค้า 1 ปี รองรับ OEM / ODM / OBM และการปรับแต่งซอฟต์แวร์ตามความต้องการ จัดส่งทั่วโลกผ่านผู้ให้บริการชั้นนำ</p>
+      </div>
+      <div class="badges">
+        <span class="badge">DHL</span><span class="badge">FedEx</span><span class="badge">UPS</span><span class="badge">TNT</span><span class="badge">EMS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap footcta">
+    <h2 data-i18n="foot_title">สนใจ HT-MS100 สำหรับพื้นที่ของคุณ?</h2>
+    <p data-i18n="foot_desc">ทีมงานพร้อมให้คำปรึกษาเรื่องการติดตั้งและปรับแต่งระบบตามความต้องการ</p>
+    <div style="margin-bottom:20px;">
+      <div style="font-family:'Chakra Petch'; font-size:1.3rem; color:var(--teal); font-weight:700;" data-i18n="price_label">ติดต่อสอบถามราคา</div>
+      <div style="font-size:0.76rem; color:var(--muted); margin-top:4px;" data-i18n="moq_label">MOQ ขั้นต่ำ 5 ชิ้น/ออเดอร์</div>
+    </div>
+    <div class="footbtnrow">
+      <a class="cta" href="#" style="margin:0;" data-i18n="foot_cta1" onclick="return buyNow(event)">ซื้อเลย</a>
+      <a class="btnoutline" href="#" style="margin:0;" data-i18n="foot_cta2" onclick="return addToCart(event)">เพิ่มลงรถเข็น</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footgrid">
+    <div class="footcol footbrand">
+      <div class="brand" style="margin-bottom:10px;">HT-MS100 <span>· Air Quality</span></div>
+      <p data-i18n="footco_desc">ผู้ผลิตและจำหน่ายระบบตรวจสอบคุณภาพอากาศระดับไมโคร รองรับลูกค้าธุรกิจทั่วโลกด้วยมาตรฐาน OEM/ODM/OBM และบริการหลังการขายครบวงจร</p>
+    </div>
+    <div class="footcol">
+      <h4 data-i18n="footcol1_h">ลิงก์ด่วน</h4>
+      <a href="#overview" data-i18n="nav_overview">ภาพรวม</a>
+      <a href="#features" data-i18n="nav_features">คุณสมบัติ</a>
+      <a href="#specs" data-i18n="nav_specs">สเปค</a>
+      <a href="#applications" data-i18n="nav_app">การใช้งาน</a>
+    </div>
+    <div class="footcol">
+      <h4 data-i18n="footcol2_h">ติดต่อเรา</h4>
+      <a href="mailto:pichai.6022@gmail.com">pichai.6022@gmail.com</a>
+      <span data-i18n="footcol2_ship">จัดส่งสินค้าไปยังลูกค้าทั่วโลก</span>
+    </div>
+  </div>
+  <div class="wrap footbottom">
+    <span data-i18n="footmeta">HT-MS100 · Micro Environmental Air Quality Monitoring System</span>
+    <span>© <span id="yearNow"></span> HT-MS100</span>
+  </div>
+</footer>
+
+<script>
+// Day / night theme toggle
+var currentTheme = 'dark';
+(function(){
+  var btn = document.getElementById('themeBtn');
+  function apply(t){
+    currentTheme = t;
+    document.documentElement.setAttribute('data-theme', t);
+    btn.textContent = t === 'light' ? '☀' : '☾';
+  }
+  apply('dark');
+  btn.addEventListener('click', function(){
+    apply(currentTheme === 'light' ? 'dark' : 'light');
+  });
+})();
+
+// Swaying galaxy background
+(function(){
+  var canvas = document.getElementById('galaxyBg');
+  var ctx = canvas.getContext('2d');
+  var w, h, stars = [], shootingStars = [];
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = [];
+    var count = Math.floor((w*h)/3200);
+    for(var i=0;i<count;i++){
+      var layer = Math.random();
+      stars.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: layer < 0.7 ? Math.random()*1.1+0.4 : Math.random()*2.2+1.2,
+        bright: layer < 0.7 ? 0.5 : 1,
+        a: Math.random()*Math.PI*2,
+        speed: Math.random()*0.004+0.001,
+        drift: Math.random()*0.5+0.15,
+        tw: Math.random()*0.03+0.008,
+        hue: Math.random() < 0.15 ? 'violet' : (Math.random() < 0.3 ? 'teal' : 'white')
+      });
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  var t = 0;
+  function spawnShootingStar(){
+    if(shootingStars.length > 2) return;
+    var startX = Math.random()*w*0.6;
+    var startY = Math.random()*h*0.3;
+    shootingStars.push({x:startX, y:startY, len:Math.random()*120+80, vx:6+Math.random()*4, vy:3+Math.random()*2, life:1});
+  }
+  function draw(){
+    t += 1;
+    ctx.clearRect(0,0,w,h);
+    var isLight = currentTheme === 'light';
+
+    for(var i=0;i<stars.length;i++){
+      var s = stars[i];
+      s.a += s.speed;
+      var sway = Math.sin(s.a) * s.drift * 26;
+      var bob = Math.cos(s.a) * 6;
+      var twinkle = 0.4 + 0.6*Math.sin(t*s.tw + i);
+      var alpha = twinkle * s.bright;
+      var color;
+      if(isLight){
+        color = 'rgba(20,60,90,' + (alpha*0.18) + ')';
+      } else if(s.hue === 'violet'){
+        color = 'rgba(180,150,255,' + (alpha*0.95) + ')';
+      } else if(s.hue === 'teal'){
+        color = 'rgba(120,235,210,' + (alpha*0.95) + ')';
+      } else {
+        color = 'rgba(255,255,255,' + (alpha*0.95) + ')';
+      }
+      ctx.beginPath();
+      ctx.arc(s.x + sway, s.y + bob, s.r, 0, Math.PI*2);
+      ctx.fillStyle = color;
+      if(!isLight && s.r > 1.2){
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = color;
+      } else {
+        ctx.shadowBlur = 0;
+      }
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+
+    if(!isLight){
+      if(Math.random() < 0.01) spawnShootingStar();
+      for(var j=shootingStars.length-1; j>=0; j--){
+        var sh = shootingStars[j];
+        sh.x += sh.vx; sh.y += sh.vy; sh.life -= 0.02;
+        if(sh.life <= 0 || sh.x > w+50 || sh.y > h+50){ shootingStars.splice(j,1); continue; }
+        var grad = ctx.createLinearGradient(sh.x, sh.y, sh.x - sh.len*(sh.vx/8), sh.y - sh.len*(sh.vy/8));
+        grad.addColorStop(0, 'rgba(255,255,255,' + sh.life + ')');
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(sh.x, sh.y);
+        ctx.lineTo(sh.x - sh.len*(sh.vx/8), sh.y - sh.len*(sh.vy/8));
+        ctx.stroke();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  if(!reduceMotion){ requestAnimationFrame(draw); }
+})();
+
+// TH <-> ZH translation
+(function(){
+  var ZH = {
+    nav_overview:"概览", nav_features:"功能特点", nav_specs:"技术规格", nav_app:"应用场景", nav_contact:"联系我们",
+    hero_eyebrow:"微环境空气质量监测系统",
+    hero_title:"看见空气质量<br>那些<em>肉眼看不见</em>的部分",
+    hero_model:"HT-MS100 — 微型网格化空气质量监测站",
+    hero_desc:"微型环境空气质量监测站，全自动持续联网运行。集成传感器、数据采集模块、处理器与显示屏于一体，同时监测多种气体与颗粒物，实时计算空气质量指数，一旦超标立即发出预警。",
+    feat1:"多参数监测", feat2:"24小时连续监测", feat3:"4G无线传输", feat4:"免费云平台",
+    hero_cta:"查看完整规格",
+    live_title:"监测站 — 实时数据",
+    vid_caption:"配备超辐能存储系统，助力更优空气质量与环境 · 同步追踪地球23.5°倾角变化",
+    ov_eyebrow:"产品概览", ov_title:"微环境空气质量监测系统",
+    ov_desc:"传感器可检测二氧化碳、一氧化碳、颗粒物及挥发性有机物等污染物。数据采集模块将测得数值转换为数字信号，交由处理器计算空气质量指数并即时显示，帮助及时掌握周边空气状况，保护人体健康。",
+    strip1:"进口传感器", strip2:"网格化布点", strip3:"定制化适配", strip4:"免费云平台",
+    feat_eyebrow:"核心功能", feat_title:"专为各种环境稳定运行而设计",
+    f1_title:"7英寸高清触摸屏", f1_desc:"显示清晰，操作简便，采用高分辨率触摸屏与友好的人机交互界面。",
+    f2_title:"网格化布点设计", f2_desc:"可灵活部署于不同监测点，分析区域污染物平均值，实现环境管理的全面监督。",
+    f3_title:"4G无线传输 + 存储15,000+条数据", f3_desc:"集成4G无线通信技术，实时监测大气环境数据，成本低，适合网格化布点。",
+    f4_title:"支持U盘数据导出", f4_desc:"配备USB接口，支持U盘导出功能，数据传输更加便捷。",
+    f5_title:"两级加热除湿控制系统", f5_desc:"自动加热除湿，保持内部恒温，无惧极端高温与严寒天气变化。",
+    f6_title:"高灵敏度进口传感器", f6_desc:"响应速度快、数据精度高、稳定性强，即使在恶劣环境下也能稳定运行。",
+    specs_eyebrow:"技术规格", specs_title:"HT-MS100 技术参数",
+    gas_h1:"气体（5种）", gas_h2:"监测范围", gas_h3:"精度",
+    dust_h1:"颗粒物（3种）", gas_h2b:"监测范围", gas_h3b:"精度",
+    app_eyebrow:"适用场景", app_title:"应用环境",
+    env1:"社区公园", env2:"工业生产", env3:"交通路段", env4:"餐饮场所",
+    env5:"学校", env6:"农业种植", env7:"办公楼", env8:"农业生产",
+    env9:"水文气象", env10:"施工现场", env11:"网格化污染源", env12:"重点污染源",
+    proc_eyebrow:"匠心工艺", proc_title:"每一道工序都追求高品质",
+    ship_title:"保修与物流", ship_desc:"提供1年质保，支持OEM/ODM/OBM及软件定制服务，通过全球领先物流商发货。",
+    foot_title:"想为您的场地配置HT-MS100吗？", foot_desc:"我们的团队随时为您提供安装与定制方案咨询。",
+    foot_cta1:"立即购买", foot_cta2:"加入购物车",
+    price_label:"联系咨询价格", moq_label:"最低起订量 5 台/订单",
+    cart_title:"购物车", checkout_title:"收货信息",
+    lbl_name:"姓名", lbl_phone:"电话号码", lbl_email:"您的邮箱（用于回复）",
+    lbl_address:"收货地址", lbl_note:"备注（可选）", submit_order:"提交订单",
+    checkout_note:"系统将打开您的邮件程序并自动填入订单信息，请在邮件中点击发送以确认订单。",
+    confirm_title:"订单邮件已准备好", confirm_desc:"您的邮件程序已打开并填入订单详情，请在邮件程序中再次点击发送以确认订单。销售团队会尽快回复报价。",
+    cart_empty:"购物车是空的", cart_checkout_btn:"提交订单信息", cart_remove:"移除",
+    cart_item_name:"HT-MS100 微环境空气质量监测系统", cart_price_note:"联系咨询价格",
+    tb1_h:"1年质保", tb1_s:"全程质量保障",
+    tb2_h:"全球发货", tb2_s:"DHL · FedEx · UPS · TNT · EMS",
+    tb3_h:"OEM / ODM / OBM", tb3_s:"支持定制化需求",
+    tb4_h:"免费云平台", tb4_s:"随时随地远程监控",
+    sup_eyebrow:"售后服务", sup_title:"专业团队全程为您保驾护航",
+    sup1:"仓储与快速发货", sup2:"专业技术支持团队", sup3:"安装指导服务", sup4:"完善售后服务",
+    footco_desc:"专注于微环境空气质量监测系统的研发与制造，服务全球商业客户，支持OEM/ODM/OBM及完善的售后服务体系。",
+    footcol1_h:"快速链接", footcol2_h:"联系我们", footcol2_ship:"产品发货至全球客户",
+    footmeta:"HT-MS100 · 微环境空气质量监测系统"
+  };
+  var btn = document.getElementById('langBtn');
+  function apply(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!el.dataset.orig) el.dataset.orig = el.innerHTML;
+      if(lang === 'zh' && ZH[el.dataset.i18n]){
+        el.innerHTML = ZH[el.dataset.i18n];
+      } else {
+        el.innerHTML = el.dataset.orig;
+      }
+    });
+    btn.textContent = lang === 'zh' ? 'TH' : '中';
+  }
+  var lang = 'th';
+  apply(lang);
+  btn.addEventListener('click', function(){
+    lang = lang === 'zh' ? 'th' : 'zh';
+    apply(lang);
+  });
+  window.getLang = function(){ return lang; };
+})();
+
+// Cart + checkout
+(function(){
+  var PRODUCT_NAME = 'HT-MS100 Micro Environmental Air Quality Monitoring System';
+  var MOQ = 5;
+  var SELLER_EMAIL = 'pichai.6022@gmail.com';
+  var cart = { qty: 0 };
+
+  try{
+    var saved = localStorage.getItem('htms100_cart_qty');
+    if(saved) cart.qty = parseInt(saved,10) || 0;
+  }catch(e){}
+
+  function saveCart(){
+    try{ localStorage.setItem('htms100_cart_qty', String(cart.qty)); }catch(e){}
+  }
+
+  function isZh(){ return window.getLang && window.getLang() === 'zh'; }
+
+  function updateBadge(){
+    var badge = document.getElementById('cartBadge');
+    if(cart.qty > 0){
+      badge.style.display = 'flex';
+      badge.textContent = cart.qty;
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  function renderCart(){
+    var body = document.getElementById('cartBody');
+    if(cart.qty <= 0){
+      body.innerHTML = '<p class="emptycart">' + (isZh() ? '购物车是空的' : 'ยังไม่มีสินค้าในตะกร้า') + '</p>';
+      return;
+    }
+    var nameTxt = isZh() ? 'HT-MS100 微环境空气质量监测系统' : PRODUCT_NAME;
+    var priceTxt = isZh() ? '联系咨询价格' : 'ติดต่อสอบถามราคา';
+    var checkoutTxt = isZh() ? '提交订单信息' : 'กรอกข้อมูลจัดส่ง';
+    var removeTxt = isZh() ? '移除' : 'ลบ';
+    body.innerHTML =
+      '<div class="cartrow">' +
+        '<div><div class="ci-name">' + nameTxt + '</div><div class="ci-price">' + priceTxt + '</div></div>' +
+        '<div class="qtybox">' +
+          '<button id="qtyMinus">−</button><span id="qtyVal">' + cart.qty + '</span><button id="qtyPlus">+</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="cartfoot">' +
+        '<button class="cta" style="width:100%; text-align:center; border:none;" id="cartCheckoutBtn">' + checkoutTxt + '</button>' +
+        '<button class="btnoutline" style="width:100%;" id="cartRemoveBtn">' + removeTxt + '</button>' +
+      '</div>';
+    document.getElementById('qtyMinus').onclick = function(){
+      if(cart.qty > MOQ){ cart.qty--; saveCart(); updateBadge(); renderCart(); }
+    };
+    document.getElementById('qtyPlus').onclick = function(){
+      cart.qty++; saveCart(); updateBadge(); renderCart();
+    };
+    document.getElementById('cartRemoveBtn').onclick = function(){
+      cart.qty = 0; saveCart(); updateBadge(); renderCart();
+    };
+    document.getElementById('cartCheckoutBtn').onclick = function(){
+      closeModal('cartOverlay');
+      openModal('checkoutOverlay');
+    };
+  }
+
+  function openModal(id){ document.getElementById(id).classList.add('open'); }
+  function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+
+  window.addToCart = function(e){
+    if(e) e.preventDefault();
+    if(cart.qty < MOQ) cart.qty = MOQ; else cart.qty += MOQ;
+    saveCart(); updateBadge();
+    renderCart();
+    openModal('cartOverlay');
+    return false;
+  };
+  window.buyNow = function(e){
+    if(e) e.preventDefault();
+    if(cart.qty < MOQ) cart.qty = MOQ;
+    saveCart(); updateBadge();
+    openModal('checkoutOverlay');
+    return false;
+  };
+
+  document.getElementById('cartBtn').addEventListener('click', function(){
+    renderCart();
+    openModal('cartOverlay');
+  });
+  document.getElementById('cartClose').addEventListener('click', function(){ closeModal('cartOverlay'); });
+  document.getElementById('checkoutClose').addEventListener('click', function(){ closeModal('checkoutOverlay'); });
+  document.getElementById('confirmClose').addEventListener('click', function(){ closeModal('confirmOverlay'); });
+  [['cartOverlay'],['checkoutOverlay'],['confirmOverlay']].forEach(function(pair){
+    document.getElementById(pair[0]).addEventListener('click', function(e){
+      if(e.target === e.currentTarget) closeModal(pair[0]);
+    });
+  });
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('custName').value.trim();
+    var phone = document.getElementById('custPhone').value.trim();
+    var email = document.getElementById('custEmail').value.trim();
+    var address = document.getElementById('custAddress').value.trim();
+    var note = document.getElementById('custNote').value.trim();
+    var qty = cart.qty > 0 ? cart.qty : MOQ;
+
+    var subject = 'คำสั่งซื้อใหม่ - HT-MS100 (' + name + ')';
+    var bodyLines = [
+      'มีคำสั่งซื้อใหม่จากหน้าเว็บ HT-MS100',
+      '',
+      'สินค้า: ' + PRODUCT_NAME,
+      'จำนวน: ' + qty + ' ชิ้น',
+      '',
+      'ชื่อลูกค้า: ' + name,
+      'เบอร์โทร: ' + phone,
+      'อีเมลลูกค้า: ' + (email || '-'),
+      'ที่อยู่จัดส่ง: ' + address,
+      'หมายเหตุ: ' + (note || '-')
+    ];
+    var mailto = 'mailto:' + SELLER_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+    window.location.href = mailto;
+
+    closeModal('checkoutOverlay');
+    openModal('confirmOverlay');
+    document.getElementById('checkoutForm').reset();
+    cart.qty = 0; saveCart(); updateBadge();
+  });
+
+  updateBadge();
+})();
+
+// Footer year
+document.getElementById('yearNow').textContent = new Date().getFullYear();
+</script>
+
+<!-- Cart modal -->
+<div class="modal-overlay" id="cartOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="cartClose">✕</button>
+    <h3 data-i18n="cart_title">ตะกร้าสินค้า</h3>
+    <div id="cartBody"></div>
+  </div>
+</div>
+
+<!-- Checkout modal -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="checkoutClose">✕</button>
+    <h3 data-i18n="checkout_title">ข้อมูลจัดส่ง</h3>
+    <form id="checkoutForm">
+      <div class="field">
+        <label data-i18n="lbl_name">ชื่อ-นามสกุล</label>
+        <input type="text" id="custName" required>
+      </div>
+      <div class="field">
+        <label data-i18n="lbl_phone">เบอร์โทรศัพท์</label>
+        <input type="tel" id="custPhone" required>
+      </div>
+      <div class="field">
+        <label data-i18n="lbl_email">อีเมลของคุณ (สำหรับติดต่อกลับ)</label>
+        <input type="email" id="custEmail">
+      </div>
+      <div class="field">
+        <label data-i18n="lbl_address">ที่อยู่จัดส่ง</label>
+        <textarea id="custAddress" required></textarea>
+      </div>
+      <div class="field">
+        <label data-i18n="lbl_note">หมายเหตุ (ถ้ามี)</label>
+        <textarea id="custNote"></textarea>
+      </div>
+      <button type="submit" class="cta" style="width:100%; text-align:center; border:none;" data-i18n="submit_order">ส่งคำสั่งซื้อ</button>
+    </form>
+    <p class="modal-note" data-i18n="checkout_note">ระบบจะเปิดโปรแกรมอีเมลของคุณพร้อมกรอกรายละเอียดคำสั่งซื้อไว้ให้แล้ว กดส่งอีเมลเพื่อยืนยันการสั่งซื้อกับทีมขาย</p>
+  </div>
+</div>
+
+<!-- Confirmation modal -->
+<div class="modal-overlay" id="confirmOverlay">
+  <div class="modal-box confirm-box">
+    <button class="modal-close" id="confirmClose">✕</button>
+    <div class="confirm-icon">✓</div>
+    <h3 data-i18n="confirm_title">เตรียมอีเมลคำสั่งซื้อแล้ว</h3>
+    <p data-i18n="confirm_desc">โปรแกรมอีเมลของคุณถูกเปิดขึ้นพร้อมรายละเอียดคำสั่งซื้อ กรุณากดส่งอีเมลอีกครั้งในโปรแกรมอีเมลเพื่อยืนยันคำสั่งซื้อ ทีมขายจะติดต่อกลับพร้อมใบเสนอราคา</p>
+  </div>
+</div>
+
+</body>
+</html>
